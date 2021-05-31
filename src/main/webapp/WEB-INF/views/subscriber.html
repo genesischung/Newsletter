@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Newsletter Subscription Service</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css" integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
+<body>
+<h1>Welcome to Newsletter Subscription Service</h1>
+
+
+<form th:action="@{/subscribe}" th:object="${subscriber}" method="post">
+    <div class="form-group">
+        <label for="emailBox">Email address</label>
+        <input type="email" th:field="*{email}" class="form-control" id="emailBox" aria-describedby="emailHelp" placeholder="example@email.com">
+        <small id="emailHelp" class="form-text text-muted">Please enter your full email address.</small>
+    </div>
+    <div class="form-group">
+        <label for="nameBox">Name</label>
+        <input type="text" th:field="*{name}" class="form-control" id="nameBox" aria-describedby="nameHelp" placeholder="Firstname Lastname">
+        <small id="nameHelp" class="form-text text-muted">Please enter your first and last name.</small>
+    </div>
+    <button style="margin:5px" type="submit" class="btn btn-primary">Subscribe</button>
+    <button style="margin:5px" type="submit" class="btn btn-warning" th:formaction="@{/unsubscribe}">Unsubscribe</button>
+    <button style="margin:5px" type="reset" class="btn btn-secondary">Reset</button>
+</form>
+
+<br/>
+
+<b>Current Subscribers:</b>
+<br/>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">Email</th>
+        <th scope="col">Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="subscriber:${subscribers}">
+        <td th:text="${subscriber.id}"></td>
+        <td th:text="${subscriber.email}"></td>
+        <td th:text="${subscriber.name}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
