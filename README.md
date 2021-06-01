@@ -1,5 +1,9 @@
 # Java III Newsletter Subscription Service Project
 
+## Note to reviewer  
+Hi, I realize that the configurations are lost when I pushed the project, so I 
+have included a Newsletter.zip for a smoother experience. 
+
 ## Introduction
 The project uses the sample code (https://github.com/jcrogel/JAVAIII_Class9) as a reference. 
 The system prompts for an email address and a name, then it will add them to the list.
